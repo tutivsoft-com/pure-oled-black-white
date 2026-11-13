@@ -19,7 +19,7 @@ The theme inherits Obsidian's built-in layout, spacing, fonts and behavior. It c
 3. Open Settings > Appearance and select Pure OLED Black White.
 4. Choose Dark or Light under Base color scheme.
 
-Version: 3.4.0. Minimum Obsidian version: 1.10.6. Supported modes: Dark and Light.
+Version: 3.4.1. Minimum Obsidian version: 1.10.6. Supported modes: Dark and Light.
 
 ## Official references
 
