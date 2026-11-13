@@ -6,6 +6,12 @@ Subtle blue-gray borders and shadows separate panels, menus and controls. Blue, 
 
 The theme inherits Obsidian's built-in layout, spacing, fonts and behavior. It changes color variables and adds small border and shadow rules. No plugins, scripts, remote assets, fonts, accounts or payments are needed. Third-party plugins with hardcoded styles may supply their own backgrounds.
 
+## Preview
+
+![Dark mode](screenshot.png)
+
+![Light mode](screenshot-light.png)
+
 ## Install manually
 
 1. Create `.obsidian/themes/Pure OLED Black White/` in your vault.
