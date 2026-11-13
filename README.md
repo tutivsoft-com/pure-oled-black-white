@@ -1,4 +1,4 @@
-# OLED Black
+# Pure OLED Black White
 
 A palette for the default Obsidian interface. Dark mode uses pure black (`#000000`) surfaces. Light mode uses pure white (`#ffffff`) surfaces. No gray panel backgrounds.
 
@@ -8,16 +8,12 @@ The theme inherits Obsidian's built-in layout, spacing, fonts and behavior. It c
 
 ## Install manually
 
-1. Create `.obsidian/themes/OLED Black/` in your vault.
+1. Create `.obsidian/themes/Pure OLED Black White/` in your vault.
 2. Copy `manifest.json` and `theme.css` into it.
-3. Open Settings > Appearance and select OLED Black.
+3. Open Settings > Appearance and select Pure OLED Black White.
 4. Choose Dark or Light under Base color scheme.
 
-Version: 1.0.0. Minimum Obsidian version: 1.10.6. Supported modes: Dark and Light.
-
-## Current status
-
-Created without running tests or opening a test vault, as requested. Not submitted to the community directory. A real screenshot and a GitHub release are still needed before submission.
+Version: 3.4.0. Minimum Obsidian version: 1.10.6. Supported modes: Dark and Light.
 
 ## Official references
 
