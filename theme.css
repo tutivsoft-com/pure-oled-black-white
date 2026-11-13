@@ -1,0 +1,261 @@
+/* OLED Black 1.0.0. MIT license.
+   The default Obsidian stylesheet supplies layout, fonts and behavior.
+   These overrides change its palette, borders and shadows only. */
+
+body.theme-dark {
+  color-scheme: dark;
+  --oled-surface: #000000;
+  --color-base-00: #000000;
+  --color-base-05: #000000;
+  --color-base-10: #000000;
+  --color-base-20: #000000;
+  --color-base-25: #000000;
+  --color-base-30: #293344;
+  --color-base-35: #38465b;
+  --color-base-40: #53647c;
+  --color-base-50: #8494ab;
+  --color-base-60: #a5b1c3;
+  --color-base-70: #c7d0df;
+  --color-base-100: #e5eaf3;
+  --color-red: #ff929f;
+  --color-orange: #f5b780;
+  --color-yellow: #e8d58e;
+  --color-green: #9cd6ad;
+  --color-cyan: #8bd7df;
+  --color-blue: #9bbfff;
+  --color-purple: #c4afff;
+  --color-pink: #eeb0d5;
+  --accent-h: 218;
+  --accent-s: 90%;
+  --accent-l: 78%;
+  --text-normal: #e5eaf3;
+  --text-muted: #acb8cb;
+  --text-faint: #8494ab;
+  --text-on-accent: #000000;
+  --text-on-accent-inverted: #ffffff;
+  --oled-border: #293344;
+  --oled-border-hover: #53647c;
+  --oled-shadow: 0 0 0 1px #293344, 0 8px 30px #000000;
+  --text-selection: #233a5c;
+  --text-highlight-bg: #493c13;
+  --text-highlight-bg-active: #614f18;
+  --background-modifier-cover: rgb(0 0 0 / 80%);
+  --scrollbar-thumb-bg: #38465b;
+  --scrollbar-active-thumb-bg: #8494ab;
+}
+
+body.theme-light {
+  color-scheme: light;
+  --oled-surface: #ffffff;
+  --color-base-00: #ffffff;
+  --color-base-05: #ffffff;
+  --color-base-10: #ffffff;
+  --color-base-20: #ffffff;
+  --color-base-25: #ffffff;
+  --color-base-30: #d7deea;
+  --color-base-35: #bac6d8;
+  --color-base-40: #92a1b8;
+  --color-base-50: #6c7a90;
+  --color-base-60: #536178;
+  --color-base-70: #3e4c62;
+  --color-base-100: #202939;
+  --color-red: #b52c46;
+  --color-orange: #995017;
+  --color-yellow: #80620c;
+  --color-green: #287545;
+  --color-cyan: #087681;
+  --color-blue: #285fbd;
+  --color-purple: #7046b5;
+  --color-pink: #a73578;
+  --accent-h: 218;
+  --accent-s: 66%;
+  --accent-l: 45%;
+  --text-normal: #202939;
+  --text-muted: #536178;
+  --text-faint: #6c7a90;
+  --text-on-accent: #ffffff;
+  --text-on-accent-inverted: #000000;
+  --oled-border: #d7deea;
+  --oled-border-hover: #92a1b8;
+  --oled-shadow: 0 0 0 1px #d7deea, 0 8px 30px rgb(40 60 90 / 12%);
+  --text-selection: #d8e8ff;
+  --text-highlight-bg: #ffecad;
+  --text-highlight-bg-active: #ffe18a;
+  --background-modifier-cover: rgb(255 255 255 / 80%);
+  --scrollbar-thumb-bg: #bac6d8;
+  --scrollbar-active-thumb-bg: #6c7a90;
+}
+
+body.theme-dark,
+body.theme-light {
+  /* Every persistent surface uses the exact base black or white. */
+  --background-primary: var(--oled-surface);
+  --background-primary-alt: var(--oled-surface);
+  --background-secondary: var(--oled-surface);
+  --background-secondary-alt: var(--oled-surface);
+  --background-modifier-form-field: var(--oled-surface);
+  --background-modifier-hover: var(--oled-surface);
+  --background-modifier-active-hover: var(--oled-surface);
+  --background-modifier-message: var(--oled-surface);
+  --background-modifier-error: var(--oled-surface);
+  --background-modifier-error-hover: var(--oled-surface);
+  --background-modifier-success: var(--oled-surface);
+  --background-modifier-border: var(--oled-border);
+  --background-modifier-border-hover: var(--oled-border-hover);
+  --background-modifier-border-focus: var(--color-blue);
+  --interactive-normal: var(--oled-surface);
+  --interactive-hover: var(--oled-surface);
+  --interactive-accent: var(--oled-surface);
+  --interactive-accent-hover: var(--oled-surface);
+  --text-on-accent: var(--color-blue);
+  --text-accent: var(--color-blue);
+  --text-accent-hover: var(--color-cyan);
+  --text-success: var(--color-green);
+  --text-warning: var(--color-orange);
+  --text-error: var(--color-red);
+  --caret-color: var(--color-blue);
+  --ribbon-background: var(--oled-surface);
+  --ribbon-background-collapsed: var(--oled-surface);
+  --titlebar-background: var(--oled-surface);
+  --titlebar-background-focused: var(--oled-surface);
+  --titlebar-text-color: var(--text-muted);
+  --titlebar-text-color-focused: var(--color-purple);
+  --titlebar-border-color: var(--oled-border);
+  --workspace-background-translucent: var(--oled-surface);
+  --tab-container-background: var(--oled-surface);
+  --tab-background-active: var(--oled-surface);
+  --tab-divider-color: var(--oled-border);
+  --tab-outline-color: var(--oled-border);
+  --tab-text-color: var(--color-purple);
+  --tab-text-color-focused: var(--color-purple);
+  --tab-text-color-active: var(--color-cyan);
+  --tab-text-color-focused-active: var(--color-cyan);
+  --tab-text-color-focused-highlighted: var(--color-blue);
+  --tab-text-color-focused-active-current: var(--color-cyan);
+  --tab-stacked-shadow: -1px 0 0 var(--oled-border);
+  --status-bar-background: var(--oled-surface);
+  --status-bar-border-color: var(--oled-border);
+  --status-bar-text-color: var(--text-muted);
+  --modal-background: var(--oled-surface);
+  --modal-border-color: var(--oled-border);
+  --menu-background: var(--oled-surface);
+  --prompt-background: var(--oled-surface);
+  --prompt-border-color: var(--oled-border);
+  --search-result-background: var(--oled-surface);
+  --nav-item-background-hover: var(--oled-surface);
+  --nav-item-background-active: var(--oled-surface);
+  --nav-item-background-selected: var(--oled-surface);
+  --nav-item-color: var(--text-muted);
+  --nav-item-color-hover: var(--color-cyan);
+  --nav-item-color-active: var(--color-blue);
+  --nav-item-color-selected: var(--color-blue);
+  --nav-item-color-highlighted: var(--color-pink);
+  --nav-heading-color: var(--color-purple);
+  --nav-heading-color-hover: var(--color-cyan);
+  --nav-indentation-guide-color: var(--oled-border);
+  --divider-color: var(--oled-border);
+  --divider-color-hover: var(--color-blue);
+  --icon-color: var(--text-muted);
+  --icon-color-hover: var(--color-cyan);
+  --icon-color-active: var(--color-blue);
+  --icon-color-focused: var(--color-blue);
+  --inline-title-color: var(--color-blue);
+  --h1-color: var(--color-blue);
+  --h2-color: var(--color-purple);
+  --h3-color: var(--color-cyan);
+  --h4-color: var(--color-green);
+  --h5-color: var(--color-orange);
+  --h6-color: var(--color-pink);
+  --link-color: var(--color-blue);
+  --link-color-hover: var(--color-cyan);
+  --link-external-color: var(--color-cyan);
+  --link-external-color-hover: var(--color-blue);
+  --link-unresolved-color: var(--color-purple);
+  --tag-color: var(--color-purple);
+  --tag-color-hover: var(--color-pink);
+  --tag-background: var(--oled-surface);
+  --tag-background-hover: var(--oled-surface);
+  --tag-border-color: var(--oled-border);
+  --tag-border-color-hover: var(--color-purple);
+  --tag-border-width: 1px;
+  --code-background: var(--oled-surface);
+  --code-normal: var(--text-normal);
+  --code-comment: var(--text-faint);
+  --code-function: var(--color-blue);
+  --code-important: var(--color-orange);
+  --code-keyword: var(--color-purple);
+  --code-operator: var(--color-cyan);
+  --code-property: var(--color-cyan);
+  --code-punctuation: var(--text-muted);
+  --code-string: var(--color-green);
+  --code-tag: var(--color-pink);
+  --code-value: var(--color-orange);
+  --blockquote-background-color: var(--oled-surface);
+  --blockquote-border-color: var(--color-purple);
+  --table-background: var(--oled-surface);
+  --table-header-background: var(--oled-surface);
+  --table-header-background-hover: var(--oled-surface);
+  --table-row-background-hover: var(--oled-surface);
+  --table-row-alt-background: var(--oled-surface);
+  --table-row-alt-background-hover: var(--oled-surface);
+  --table-border-color: var(--oled-border);
+  --table-header-color: var(--color-cyan);
+  --table-selection: var(--text-selection);
+  --embed-background: var(--oled-surface);
+  --embed-border-start: 1px solid var(--oled-border);
+  --metadata-background: var(--oled-surface);
+  --metadata-background-hover: var(--oled-surface);
+  --metadata-property-background: var(--oled-surface);
+  --metadata-property-background-hover: var(--oled-surface);
+  --metadata-property-background-active: var(--oled-surface);
+  --metadata-border-color: var(--oled-border);
+  --canvas-background: var(--oled-surface);
+  --canvas-dot-pattern: var(--oled-border);
+  --canvas-card-label-color: var(--text-muted);
+  --graph-text: var(--text-normal);
+  --graph-line: var(--oled-border-hover);
+  --graph-node: var(--color-blue);
+  --graph-node-unresolved: var(--color-purple);
+  --graph-node-focused: var(--color-cyan);
+  --graph-node-tag: var(--color-green);
+  --graph-node-attachment: var(--color-orange);
+  --scrollbar-bg: var(--oled-surface);
+  --hr-color: var(--oled-border);
+  --indentation-guide-color: var(--oled-border);
+  --indentation-guide-color-active: var(--color-purple);
+  --background-modifier-box-shadow: var(--oled-border);
+  --input-shadow: 0 0 0 1px var(--oled-border);
+  --input-shadow-hover: 0 0 0 1px var(--oled-border-hover);
+  --shadow-s: var(--oled-shadow);
+  --shadow-l: var(--oled-shadow);
+}
+
+/* Keep callout surfaces black or white; their own color marks the border. */
+body:is(.theme-dark, .theme-light) .callout {
+  background-color: var(--oled-surface);
+  --callout-border-opacity: 0.45;
+  --callout-border-width: 1px;
+}
+
+/* Colored controls stay legible without filling their backgrounds. */
+body:is(.theme-dark, .theme-light) :is(button.mod-cta, .checkbox-container) {
+  box-shadow: 0 0 0 1px var(--color-blue);
+}
+
+body:is(.theme-dark, .theme-light) .checkbox-container.is-enabled {
+  --toggle-thumb-color: var(--color-blue);
+}
+
+/* A fine edge identifies hovered and selected items on equal surfaces. */
+body:is(.theme-dark, .theme-light) :is(
+  .nav-file-title:hover,
+  .nav-folder-title:hover,
+  .nav-file-title.is-active,
+  .suggestion-item.is-selected,
+  .menu-item.selected,
+  .menu-item:hover,
+  .vertical-tab-nav-item.is-active,
+  .workspace-tab-header.is-active
+) {
+  box-shadow: inset 0 0 0 1px var(--oled-border-hover);
+}
