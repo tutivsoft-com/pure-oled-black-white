@@ -12,10 +12,16 @@ The theme inherits Obsidian's built-in layout, spacing, fonts and behavior. It c
 
 ![Light mode](screenshot-light.png)
 
+## Install from Obsidian Community
+
+Open **Settings > Appearance > Themes > Manage**, search for **Pure OLED Black White**, and select the theme to install and apply it. Choose Dark or Light under **Base color scheme**.
+
+[Obsidian Community listing](https://community.obsidian.md/themes/pure-oled-black-white)
+
 ## Install manually
 
 1. Create `.obsidian/themes/Pure OLED Black White/` in your vault.
-2. Copy `manifest.json` and `theme.css` into it.
+2. Download the matching `manifest.json` and `theme.css` attachments from the [GitHub releases page](https://github.com/tutivsoft-com/pure-oled-black-white/releases) and copy them into that folder.
 3. Open Settings > Appearance and select Pure OLED Black White.
 4. Choose Dark or Light under Base color scheme.
 
