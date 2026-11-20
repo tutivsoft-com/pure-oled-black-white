@@ -25,7 +25,7 @@ Open **Settings > Appearance > Themes > Manage**, search for **Pure OLED Black W
 3. Open Settings > Appearance and select Pure OLED Black White.
 4. Choose Dark or Light under Base color scheme.
 
-Version: 3.4.1. Minimum Obsidian version: 1.10.6. Supported modes: Dark and Light.
+Version: 3.5.0. Minimum Obsidian version: 1.10.6. Supported modes: Dark and Light.
 
 ## Official references
 
