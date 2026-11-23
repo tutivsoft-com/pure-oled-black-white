@@ -1,4 +1,4 @@
-/* Pure OLED Black White 3.5.0. MIT license.
+/* Pure OLED Black White 3.5.1. MIT license.
    The default Obsidian stylesheet supplies layout, fonts and behavior.
    These overrides change its palette, borders and shadows only. */
 
@@ -31,7 +31,6 @@ body.theme-dark {
   --text-normal: #e5eaf3;
   --text-muted: #acb8cb;
   --text-faint: #8494ab;
-  --text-on-accent: #000000;
   --text-on-accent-inverted: #ffffff;
   --oled-border: #293344;
   --oled-border-hover: #53647c;
@@ -73,7 +72,6 @@ body.theme-light {
   --text-normal: #202939;
   --text-muted: #536178;
   --text-faint: #6c7a90;
-  --text-on-accent: #ffffff;
   --text-on-accent-inverted: #000000;
   --oled-border: #d7deea;
   --oled-border-hover: #92a1b8;
@@ -105,9 +103,10 @@ body.theme-light {
   --background-modifier-border-focus: var(--color-blue);
   --interactive-normal: var(--oled-surface);
   --interactive-hover: var(--oled-surface);
-  --interactive-accent: var(--oled-surface);
-  --interactive-accent-hover: var(--oled-surface);
-  --text-on-accent: var(--color-blue);
+  /* Obsidian also uses these accents for progress, checkmarks and focus. */
+  --interactive-accent: var(--color-blue);
+  --interactive-accent-hover: var(--color-cyan);
+  --text-on-accent: var(--oled-surface);
   --text-accent: var(--color-blue);
   --text-accent-hover: var(--color-cyan);
   --text-success: var(--color-green);
@@ -237,12 +236,18 @@ body:is(.theme-dark, .theme-light) .callout {
   --callout-border-width: 1px;
 }
 
-/* Colored controls stay legible without filling their backgrounds. */
-body:is(.theme-dark, .theme-light) :is(button.mod-cta, .checkbox-container) {
+/* Keep primary buttons and settings toggles on the base surface. */
+body:is(.theme-dark, .theme-light) button.mod-cta {
+  background-color: var(--oled-surface);
+  --text-on-accent: var(--color-blue);
+}
+
+body:is(.theme-dark, .theme-light) :is(button.mod-cta:not(:focus-visible), .checkbox-container) {
   box-shadow: 0 0 0 1px var(--color-blue);
 }
 
 body:is(.theme-dark, .theme-light) .checkbox-container.is-enabled {
+  background-color: var(--oled-surface);
   --toggle-thumb-color: var(--color-blue);
 }
 
