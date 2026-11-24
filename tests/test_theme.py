@@ -95,12 +95,27 @@ class ThemeTests(unittest.TestCase):
                 self.assertIn("box-shadow", button)
                 self.assertNotIn("box-shadow", focused)
 
-    def test_enabled_settings_toggle_has_visible_thumb_on_pure_surface(self):
+    def test_settings_toggle_has_contrasting_states_on_pure_surface(self):
+        def luminance(color):
+            channels = [int(color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+            linear = [
+                channel / 12.92 if channel <= 0.04045
+                else ((channel + 0.055) / 1.055) ** 2.4
+                for channel in channels
+            ]
+            return sum(value * weight for value, weight in zip(linear, (0.2126, 0.7152, 0.0722)))
+
         for mode, surface in SURFACES.items():
             with self.subTest(mode=mode):
-                _, toggle = self.styles(mode, '<div class="checkbox-container is-enabled" />')
-                self.assertEqual(self.color("background-color", toggle), surface)
-                self.assertNotEqual(self.color("--toggle-thumb-color", toggle), surface)
+                for suffix, expected in (("", "--text-faint"), (" is-enabled", "--color-blue")):
+                    _, toggle = self.styles(mode, f'<label class="checkbox-container{suffix}" />')
+                    track = self.color("background-color", toggle)
+                    thumb = self.color("--toggle-thumb-color", toggle)
+                    self.assertEqual(track, surface)
+                    self.assertEqual(thumb, self.color(expected, toggle))
+                    self.assertIn("var(--toggle-thumb-color)", toggle["box-shadow"])
+                    dark, light = sorted((luminance(track), luminance(thumb)))
+                    self.assertGreaterEqual((light + 0.05) / (dark + 0.05), 3)
 
     def test_readme_matches_manifest_and_preview_files(self):
         manifest = json.loads((ROOT / "manifest.json").read_text(encoding="utf-8"))

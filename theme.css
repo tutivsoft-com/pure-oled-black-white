@@ -242,12 +242,17 @@ body:is(.theme-dark, .theme-light) button.mod-cta {
   --text-on-accent: var(--color-blue);
 }
 
-body:is(.theme-dark, .theme-light) :is(button.mod-cta:not(:focus-visible), .checkbox-container) {
+body:is(.theme-dark, .theme-light) button.mod-cta:not(:focus-visible) {
   box-shadow: 0 0 0 1px var(--color-blue);
 }
 
-body:is(.theme-dark, .theme-light) .checkbox-container.is-enabled {
+body:is(.theme-dark, .theme-light) .checkbox-container {
   background-color: var(--oled-surface);
+  box-shadow: 0 0 0 1px var(--toggle-thumb-color);
+  --toggle-thumb-color: var(--text-faint);
+}
+
+body:is(.theme-dark, .theme-light) .checkbox-container.is-enabled {
   --toggle-thumb-color: var(--color-blue);
 }
 
