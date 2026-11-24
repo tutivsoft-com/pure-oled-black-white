@@ -242,8 +242,12 @@ body:is(.theme-dark, .theme-light) button.mod-cta {
   --text-on-accent: var(--color-blue);
 }
 
+body:is(.theme-dark, .theme-light) button.mod-cta:not(.mod-destructive):hover {
+  --text-on-accent: var(--color-cyan);
+}
+
 body:is(.theme-dark, .theme-light) button.mod-cta:not(:focus-visible) {
-  box-shadow: 0 0 0 1px var(--color-blue);
+  box-shadow: 0 0 0 1px var(--text-on-accent);
 }
 
 body:is(.theme-dark, .theme-light) .checkbox-container {

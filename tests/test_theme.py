@@ -31,8 +31,9 @@ class ThemeTests(unittest.TestCase):
                 for item in declarations
             }
             selector = tinycss2.serialize(rule.prelude)
-            # The static matcher needs a fixture attribute for keyboard focus.
+            # The static matcher needs fixture attributes for dynamic states.
             selector = selector.replace(":focus-visible", "[data-focus-visible]")
+            selector = selector.replace(":hover", "[data-hover]")
             for compiled in cssselect2.compile_selector_list(selector):
                 self.matcher.add_selector(compiled, values)
 
@@ -85,14 +86,17 @@ class ThemeTests(unittest.TestCase):
                 _, focused = self.styles(
                     mode, '<button class="mod-cta" data-focus-visible="" />'
                 )
-                for styles in (button, focused):
+                _, hovered = self.styles(mode, '<button class="mod-cta" data-hover="" />')
+                for styles in (button, focused, hovered):
                     self.assertEqual(self.color("background-color", styles), surface)
                     self.assertNotEqual(self.color("--text-on-accent", styles), surface)
                     self.assertEqual(
                         self.color("--interactive-accent", styles),
                         self.color("--interactive-accent", body),
                     )
-                self.assertIn("box-shadow", button)
+                self.assertEqual(self.color("--text-on-accent", button), self.color("--color-blue", body))
+                self.assertEqual(self.color("--text-on-accent", hovered), self.color("--color-cyan", body))
+                self.assertIn("var(--text-on-accent)", button["box-shadow"])
                 self.assertNotIn("box-shadow", focused)
 
     def test_settings_toggle_has_contrasting_states_on_pure_surface(self):
